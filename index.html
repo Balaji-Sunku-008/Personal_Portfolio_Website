@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content = "IEedge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balaji-Portfolio-Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"   
+  rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+
+    }
+    html{
+      scroll-behavior: smooth;
+    }
+    body{
+      background-color: white;
+      color: black;
+      font-family: 'Poppins', sans-serif;
+    }
+    nav{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      background-color: rgb(44, 2, 49);
+      color: white;
+    }
+    nav ul{
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li{
+      display: inline-block;
+      list-style: none;
+      margin: 0 23px;
+    }
+    nav ul li a{
+      text-decoration: none;
+      color: lavender;
+      position: relative;
+    }
+    nav ul li a:hover{
+      color: white;
+      font-size: 1.1rem;
+    }
+    nav ul li a::after{
+      content: '';
+      width: 0%;
+      height: 3px;
+      background: rgb(184, 107, 190);
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      transition: 0.5s;
+    }
+    nav ul li a:hover::after{
+      width: 100%;
+
+    }
+    .left{
+      font-size: 1.5rem;
+    }
+    
+    .firstSection{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .firstSection > div{
+      width: 30%;
+    }
+    .leftSection{
+      
+      font-size: 2rem;
+    }
+    
+    .rightSection img{
+      width: 80%;
+      margin: 50px 0;
+    }
+    .purple{
+      color: blueviolet;
+    }
+    #element{
+      color: blueviolet;
+    }
+    
+    #about{
+      padding: 80px 0;
+    }
+    .row{
+      display: flex;
+      justify-content: space-around;
+    }
+    .about-col-1{
+      flex-basis: 35%;
+
+    }
+    .about-col-1 img{
+      width: 100%;
+      border-radius: 15px;
+    }
+    .about-col-2{
+      flex-basis: 60%;
+      
+    }
+    .sub-title{
+      font-size: 60px;
+      font-weight: 600;
+      color: blueviolet;
+    }
+    .tab-titles{
+      display: flex;
+      margin: 20px 0 40px;
+    }
+    .tab-links{
+      margin-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-links::after{
+      content: '';
+      width: 0;
+      height: 3px;
+      background: rgb(184, 107, 190);
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.5s;
+    }
+    .tab-links.active-link::after{
+      width: 50%;
+    }
+    .tab-contents ul li{
+      list-style: none;
+      margin: 10px 0;
+    }
+    .tab-contents ul li span{
+      color:  rgb(123, 78, 126);
+      font-size: 14px;
+    }
+    .tab-contents{
+      display: none;
+    }
+    .tab-contents.active-tab{
+      display: block;
+    }
+    #services{
+      padding: 30px 0;
+    }
+    .services-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+    .services-list div{
+      background: blueviolet;
+      color: white;
+      padding: 40px;
+      font-size: 13px;
+      font-weight: 300;
+      border-radius: 10px;
+      transition: background 0.5s, transform 0.5s;
+    }
+    .services-list div i{
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+    .services-list div h2{
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .services-list div a{
+      text-decoration: none;
+      color: white;
+      font-size: 12px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .services-list div:hover{
+      background-color: rgb(100, 10, 102);
+      transform: translateY(-10px);
+    }
+    #portfolio{
+      padding: 50px 0;
+
+    }
+    .work-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+    .work{
+      border-radius: 10px;
+      position:relative;
+      overflow: hidden;
+    }
+    .work img{
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .layer{
+      width: 90%;
+      height: 0%;
+      background: linear-gradient(rgb(0, 0, 0,0.6),blueviolet);
+      border-radius: 10px;
+      color: rgb(255, 255, 255);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      transition: height 0.5s;
+    }
+    .layer h3{
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .layer a{
+      margin-top: 20px;
+      color: blueviolet;
+      font-size: 18px;
+      text-decoration: none;
+      line-height: 60px;
+      background: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+    }
+    .work:hover img{
+      transform: scale(1.1);
+    }
+    .work:hover .layer{
+      height: 100%;
+    }
+    .btn{
+      display: block;
+      margin: 50px auto;
+      width: fit-content;
+      border: 1px solid blueviolet;
+      padding: 14px 50px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: black;
+      transition: background 0.5s;
+    }
+    .btn:hover{
+      background: blueviolet;
+    }
+    .contact-left{
+      flex-basis: 23%;
+    }
+    .contact-right{
+      flex-basis: 0%;
+    }
+    .contact-left p{
+      margin-top: 30px;
+    }
+    .contact-left p i{
+      color: blueviolet;
+      margin-right: 15px;
+      font-size: 25px;
+    }
+    .social-icons{
+      margin-top: 30px;
+    }
+    .social-icons a{
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 15px;
+      color: blueviolet;
+      display: inline-block;
+      transition: transform 0.5s;
+    }
+    .social-icons a:hover{
+      color: blue;
+      transform: translateY(-5px);
+    }
+    .btn.btn2{
+      display: inline-block;
+      color: white;
+      background: blueviolet;
+    }
+    .contact-right form{
+      width: 100%;
+    }
+    form input, form textarea{
+      width: 100%;
+      border:0;
+      outline: none;
+      background: lavender;
+      padding: 15px;
+      margin: 15px 0;
+      color: black;
+      font-size: 18px;
+      border-radius: 6px;
+    }
+    form .btn2{
+      padding: 14px 60px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .copyright{
+      width: 100%;
+      text-align: center;
+      padding: 25px 0;
+      background: blueviolet;
+      color: #fff;
+      font-weight: 300;
+      margin-top: 20px;
+    }
+    .copyright i{
+      color: red;
+    }
+  
+    #msg{
+      color: rgb(76, 107, 9);
+      margin-top: 400px;
+      display: block;
+      font-size: 15px;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/eb059f7a88.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="header">
+    <nav>
+      <div class = "left">Balaji's Portfolio</div>
+
+      <div class = "right">
+        <ul>
+          <li><a href="#header"> Home      </a> </li>
+          <li><a href="#about">About     </a> </li>
+          <li><a href="#services">Services  </a> </li>
+          <li><a href="#portfolio">Projects  </a> </li>
+          <li><a href="#contact">Contact Me</a> </li>
+        </ul> 
+      </div>
+
+    </nav>
+  </header>
+  <main>
+    <section class="firstSection">
+      <div class="leftSection">
+        Hi, My name is <span class="purple">Balaji</span>   
+        <div>and I am a Passionate</div>
+        
+        <span id="element"></span>
+      </div>
+      <div class="rightSection">
+        <img src="bg.png" alt style="width: 80%;">
+      </div>
+    </section>
+  </div> 
+<!----------------about--------------------------->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="ab.png" alt style="width:100%">
+          </div>
+          <div class="about-col-2">
+            <h1 class="sub-title">About Me</h1>
+            <p>Hello, everyone! I'm Balaji Sunku, a CSE 4A student who finds joy in exploring new     places, indulging in anime, and writing captivating books.
+              Currently, I am actively engaged in various pursuits, being a member of the BIT Club, Toastmasters, and IEEE.
+              I'm thrilled to connect with all of you and eager to contribute my skills and passion to our endeavors</p>
+              <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links"onclick="opentab('experience')">Experience</p>
+                <p class="tab-links"onclick="opentab('education')">Education</p>
+              </div>
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li><span>Web Development</span><br>Developing a Web Interfaces</li>
+                  <li><span>Artificial Intelligent & Machine Learning </span><br>Training and developing new tech</li>
+                  <li><span>Author</span><br>Published a book Internationally</li>
+                </ul>
+              </div>
+              <div class="tab-contents" id="experience">
+                <ul>
+                  <li><span>2022</span><br>Toastmasters member </li>
+                  <li><span>2022</span><br>IEEE member </li>
+                  <li><span>2021 Feb-Mar</span><br>Internship at AWS</li>
+                  
+                </ul>
+              </div>
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li><span>2021-2025</span><br>New Horizon College of Engineering</li>
+                  <li><span>2019-2021 </span><br>Deeksha Center for Learning</li>
+                  <li><span>2017-2019</span><br>Jain Public School</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!----------------------services--------------------------------->
+<div id="services">
+  <div class="container">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Web Design</h2>
+        <p>Web designing is the process of planning, conceptualizing, and implementing the plan for designing a website in a way that is functional and offers a good user experience</p>
+        <a href="#">Learn more</a>
+        </div>
+        <div>
+          <i class="fa-brands fa-app-store"></i>
+        <h2>App Design</h2>
+        <p> App design is an ongoing process comprising user experience (UX) and user interface (UI) elements</p>
+        <a href="#">Learn more</a>
+        </div>
+        <div>
+        <i class="fa-solid fa-pen-nib"></i>
+        <h2>Content Writing </h2>
+        <p> Content writing is the process of creating and publishing written content for a variety of purposes, including marketing, education, and entertainment</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------portfolio-------------------------->
+<div id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="work-1.png" alt="">
+        <div class="layer">
+          <h3>Personal Portfolio Website</h3>
+          <p>This website explains regarding my details and to know more about me</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-2.png" alt="">
+        <div class="layer">
+          <h3>Brain Tumor Detection Using Machine Learning</h3>
+          <p>This project detects from the medical scans whether a tumor exists or not</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-3.png" alt="">
+        <div class="layer">
+          <h3>Sorting Visualiser</h3>
+          <p>This project shows how all the sorting algorithms work using a bar graph</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn">See More</a>
+  </div>
+</div>
+<!------------------------------Contact Form-------------------------------->
+<div id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1>
+        <p> <i class="fa-solid fa-paper-plane"></i> contact@example.com</p>
+        <p> <i class="fa-solid fa-square-phone"></i> 0123456789</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://twitter.com/BalajiSunku1"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/balaji-sunku-035929215/"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <a href="Microsoft Cover letter.pdf" download class="btn btn2">Download CV</a>
+      </div>
+      <div class="contact-right"></div>
+      <form name = "submit-to-google-sheet">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name = "Email" placeholder="Your Name" required>
+        <textarea name = "Message" rows="6" placeholder="Your Message"></textarea>
+        <button type ="submit" class="btn btn2">Submit</button>
+      </form>
+      <span id ="msg"></span>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>Copyright © Balaji. Made with <i class="fa-solid fa-heart"></i> by Easy Tutorials</p>
+  </div>
+</div>
+  </main>
+
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Web Developer', 'Author','Potrait Artist', 'Speaker','Poet'],
+      typeSpeed: 50,
+    });
+  </script>
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+      for(tablink of tablinks){
+        tablink.classList.remove("active-link")
+      }
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab")
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab")
+
+
+    }
+  </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxIA-FuHW55ryDgCMCyJsO0pzxsnm3UQyl_PV9d-thSFWYaSo-lWlLdsdlQO6sc6Roq/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          msg.innerHTML= "Message sent Successfully"
+          setTimeout(function(){
+            msg.innerHTML=""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
